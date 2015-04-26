@@ -107,7 +107,7 @@ if (file.exists(directory_file) == FALSE) {
 
 <br>
 
-**  Merge the training and the test sets to create one data set**
+**Merge the training and the test sets to create one data set**
 >```
 
 >features <- rbind(features_train, features_test)
@@ -120,7 +120,7 @@ subject <- rbind(subject_train, subject_test)
 
 <br>
 
-** Creates one data set**
+**Creates one data set**
 >```
 >
 features_names <- read.table("UCI HAR Dataset/features.txt")

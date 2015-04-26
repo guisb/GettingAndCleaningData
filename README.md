@@ -51,19 +51,19 @@ A full description is available at the site where the data was obtain
 
 >```
 >
->**#Get data**
+>
 >
 >download("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "UCI HAR Dataset.zip", mode = "wb")
 
->**#Local file data**
+>
 >
 >file_zip <- "UCI HAR Dataset.zip"
 
->**# Directory**
+>
 >
 >directory_file <- "./UCI HAR Dataset"
 
->**#Unzip
+>
 >
 if (file.exists(directory_file) == FALSE) {
     unzip(file_zip)
@@ -75,19 +75,25 @@ if (file.exists(directory_file) == FALSE) {
 
 ###Merges the training and the test sets to create one data set.
 
+**Read test data set**
+
 >```
 >
-**# read test data set**
+
 
 >features_test <- read.table("./UCI HAR Dataset/test/X_test.txt", header = FALSE)
 >
 >activity_test <- read.table("./UCI HAR Dataset/test/y_test.txt", header = FALSE)
 >  
 >subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", header = FALSE)
+
+
+>```
+
+**Read train data set**
+>```
 >
 
-
->**# read train data set**
 >
 >features_train <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALSE)
 
@@ -95,8 +101,11 @@ if (file.exists(directory_file) == FALSE) {
 
 >subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", header = FALSE)
 
+>```
 
->**#  Merge the training and the test sets to create one data set**
+
+**#  Merge the training and the test sets to create one data set**
+>```
 
 >features <- rbind(features_train, features_test)
 >
@@ -104,13 +113,14 @@ if (file.exists(directory_file) == FALSE) {
 >
 subject <- rbind(subject_train, subject_test)
 
+>```
 
-
->**# read features names**
+**# creates one data set**
+>```
 >
 features_names <- read.table("UCI HAR Dataset/features.txt")
 
->**# set columns names**
+
 >
 colnames(features) <- t(features_names[2])
 
@@ -118,7 +128,7 @@ colnames(features) <- t(features_names[2])
 >
 colnames(subject) <- "Subject"
 
->**# creates one data set**
+
 >
 all_data <- cbind(features,activity,subject)
 
